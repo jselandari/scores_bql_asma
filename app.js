@@ -33,7 +33,7 @@ var SCORES = {
     name: 'Tal modificado por FC',
     age: '1 a 24 meses',
     max: 12,
-    intro: 'Bronquiolitis y síndrome bronquial obstructivo del lactante.',
+    intro: 'Bronquiolitis y síndrome bronquial obstructivo del lactante. Escala de dificultad respiratoria del Ministerio de Salud (EDRAR).',
     items: [
       { id: 'fr', legend: 'Frecuencia respiratoria', options: null },
       {
@@ -180,6 +180,13 @@ function itemOptions(sc, item) {
 }
 function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
 
+// al cambiar de calculadora, volver al encabezado sin que el foco arrastre la vista
+function scrollToTop() {
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  try { window.scrollTo({ top: 0, left: 0, behavior: reduce ? 'auto' : 'smooth' }); }
+  catch (err) { window.scrollTo(0, 0); }
+}
+
 /* ---------------------------- render ----------------------------- */
 
 function render() {
@@ -320,7 +327,9 @@ document.querySelectorAll('.tab').forEach(function (t) {
     values = {};
     satSev = null;
     render();
-    document.getElementById('panel').focus();
+    var panel = document.getElementById('panel');
+    if (panel.focus) { try { panel.focus({ preventScroll: true }); } catch (err) { panel.focus(); } }
+    scrollToTop();
   });
 });
 
