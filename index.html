@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Escores de dificultad respiratoria obstructiva baja</title>
+<meta name="description" content="Calculadora de Tal modificado por FC, Pulmonary score y PRAM para dificultad respiratoria obstructiva baja en pediatría.">
+<meta name="theme-color" content="#0E3540">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Escores DRO">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body data-score="tal">
+<header class="topbar">
+  <img class="brand" src="./icon-192.png" alt="AR-UCIP">
+  <div>
+    <h1>Escores de dificultad respiratoria obstructiva baja</h1>
+    <p class="sub">AR-UCIP · Ayuda rápida para UCIP</p>
+  </div>
+</header>
+
+<nav class="tabs" role="tablist" aria-label="Elegir escore por edad">
+  <button class="tab" role="tab" id="tab-tal" aria-controls="panel" data-score="tal">
+    <span class="tab-age">1–24 m</span><span class="tab-name">Tal mod. por FC</span>
+  </button>
+  <button class="tab" role="tab" id="tab-ps" aria-controls="panel" data-score="ps">
+    <span class="tab-age">2–5 a</span><span class="tab-name">Pulmonary score</span>
+  </button>
+  <button class="tab" role="tab" id="tab-pram" aria-controls="panel" data-score="pram">
+    <span class="tab-age">3–17 a</span><span class="tab-name">PRAM</span>
+  </button>
+</nav>
+
+<main id="panel" role="tabpanel" tabindex="-1"></main>
+
+<section class="sheet" id="result" aria-live="polite">
+  <div class="sheet-inner">
+    <div class="score-box">
+      <span class="score-num" id="score-num">–</span>
+      <span class="score-max" id="score-max"></span>
+    </div>
+    <div class="score-text">
+      <strong id="score-label">Completá los ítems</strong>
+      <span id="score-note"></span>
+    </div>
+    <div class="sheet-actions">
+      <button type="button" id="copy" class="ghost">Copiar</button>
+      <button type="button" id="reset" class="ghost">Borrar</button>
+    </div>
+  </div>
+</section>
+
+<footer class="legal">
+  <p class="warning"><strong>Advertencia.</strong> Esta herramienta asiste el cálculo; no reemplaza el juicio ni la evaluación clínica del paciente.</p>
+  <details>
+    <summary>Fuentes</summary>
+    <ul>
+      <li>Coarasa A, Giugno H, Cutri A, Loto Y, et al. Validación de una herramienta de predicción clínica simple para la evaluación de la gravedad en niños con síndrome bronquial obstructivo. <em>Arch Argent Pediatr</em> 2010;108(2):116-23.</li>
+      <li>Ministerio de Salud de la Nación. <a href="https://www.argentina.gob.ar/sites/default/files/guia_para_la_vigilancia_prevencion_y_control_ira-2024.pdf" rel="noopener">Guía para la vigilancia, prevención y control de las IRA, 2024</a> (visitado 31-05-2026).</li>
+      <li><a href=" https://www.sap.org.ar/docs/pdf/consensos_guia-de-diagnostico-y-tratamiento-del-asma-bronquial-en-ninos-preescolares-153.pdf " rel="noopener"> Comité Nacional de Neumonología. Guía de diagnóstico y tratamiento del asma bronquial en niños preescolares. </a> (visitado 31-07-2026).</li>
+      <li><a href="https://doi.org/10.5546/aap.2021.S123" <em> Guía de diagnóstico y tratamiento: asma bronquial en niños ≥ 6 años. Actualización 2021. Arch Argent Pediatr</em> 2021;119(4):S123-S158. doi: 10.5546/aap.2021.S123</li>
+      <li>Ducharme FM, Chalut D, Plotnick L, et al. The Pediatric Respiratory Assessment Measure: a valid clinical score for assessing acute asthma severity from toddlers to teenagers. <em>J Pediatr</em> 2008;152(4):476-80.</li>
+      <li>Chalut DS, Ducharme FM, Davis GM. The Preschool Respiratory Assessment Measure (PRAM): a responsive index of acute asthma severity. <em>J Pediatr</em> 2000;137(6):762-8.</li>
+    </ul>
+  </details>
+</footer>
+
+<script src="./app.js"></script>
+</body>
+</html>

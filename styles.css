@@ -1,0 +1,145 @@
+:root{
+  --teal:#70979E;
+  --teal-dk:#0E3540;
+  --ink:#16252B;
+  --muted:#5C7077;
+  --paper:#F2F6F6;
+  --card:#FFFFFF;
+  --line:#D6E1E3;
+  --leve:#1F7A5A;
+  --mod:#B9741A;
+  --grave:#B3312B;
+  --radius:12px;
+  --sheet-h:88px;
+  --accent:#12626F;
+  --accent-dk:#0B3E47;
+  --accent-soft:#E8F3F4;
+}
+/* acento propio de cada calculadora */
+body[data-score="tal"]{--accent:#12626F;--accent-dk:#0B3E47;--accent-soft:#E6F2F3}
+body[data-score="ps"]{--accent:#3F4E92;--accent-dk:#2A3568;--accent-soft:#ECEEF9}
+body[data-score="pram"]{--accent:#8A4160;--accent-dk:#5F2B42;--accent-soft:#F9ECF1}
+
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.45;
+  padding-bottom:calc(var(--sheet-h) + env(safe-area-inset-bottom));
+  -webkit-text-size-adjust:100%;
+}
+
+/* ---------- encabezado ---------- */
+.topbar{
+  display:flex;gap:12px;align-items:center;
+  padding:14px 16px;
+  background:var(--accent-dk);color:#fff;
+  padding-top:calc(14px + env(safe-area-inset-top));
+  transition:background-color .18s ease;
+}
+.brand{width:42px;height:42px;border-radius:9px;background:#fff;flex:0 0 auto}
+.topbar h1{margin:0;font-size:1.02rem;line-height:1.25;font-weight:600;letter-spacing:.1px}
+.sub{margin:2px 0 0;font-size:.78rem;opacity:.72}
+
+/* ---------- pestañas ---------- */
+.tabs{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--line);
+  position:sticky;top:0;z-index:5;
+  border-bottom:1px solid var(--line);
+}
+.tab{
+  appearance:none;border:0;cursor:pointer;
+  background:#E9EEEF;color:var(--muted);
+  padding:9px 4px 10px;font:inherit;text-align:center;
+  display:flex;flex-direction:column;gap:1px;
+  border-top:4px solid transparent;
+}
+.tab-age{font-size:.72rem;letter-spacing:.3px}
+.tab-name{font-size:.86rem;font-weight:600;color:var(--muted)}
+#tab-tal[aria-selected="true"]{background:#fff;border-top-color:#12626F;color:#0B3E47}
+#tab-ps[aria-selected="true"]{background:#fff;border-top-color:#3F4E92;color:#2A3568}
+#tab-pram[aria-selected="true"]{background:#fff;border-top-color:#8A4160;color:#5F2B42}
+.tab[aria-selected="true"] .tab-name{color:inherit}
+.tab[aria-selected="true"] .tab-age{color:inherit;opacity:.8}
+
+/* ---------- contenido ---------- */
+main{max-width:640px;margin:0 auto;padding:14px 12px 4px}
+.intro{
+  background:var(--accent-soft);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:var(--radius);padding:10px 12px;margin:0 0 14px;font-size:.87rem;color:var(--ink);
+}
+.intro b{font-weight:700}
+.intro .eyebrow{display:block;font-weight:700;color:var(--accent-dk);margin-bottom:2px}
+
+fieldset{
+  border:1px solid var(--line);border-radius:var(--radius);
+  background:var(--card);margin:0 0 12px;padding:10px 12px 12px;
+}
+legend{font-size:.9rem;font-weight:600;padding:0 6px;color:var(--accent-dk)}
+.hint{margin:0 0 8px;font-size:.78rem;color:var(--muted)}
+fieldset .hint:last-child{margin:8px 0 0}
+
+.opts{display:flex;flex-direction:column;gap:6px}
+.opt{position:relative;display:flex;align-items:flex-start;gap:10px;cursor:pointer;
+  border:1px solid var(--line);border-radius:10px;padding:9px 10px;background:#fff}
+.opt input{position:absolute;opacity:0;width:1px;height:1px}
+.opt .pts{
+  flex:0 0 auto;min-width:24px;height:24px;border-radius:7px;background:var(--paper);
+  color:var(--muted);font-size:.8rem;font-weight:700;display:grid;place-items:center;margin-top:1px}
+.opt span.txt{flex:1;font-size:.9rem}
+.opt:has(input:checked){border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.opt:has(input:checked) .pts{background:var(--accent);color:#fff}
+.opt:has(input:focus-visible){outline:3px solid var(--accent-dk);outline-offset:2px}
+
+.seg{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.seg button{
+  appearance:none;font:inherit;font-size:.85rem;cursor:pointer;
+  border:1px solid var(--line);background:#fff;color:var(--muted);
+  border-radius:999px;padding:7px 14px}
+.seg button[aria-pressed="true"]{background:var(--accent-dk);border-color:var(--accent-dk);color:#fff}
+
+/* ---------- barra de resultado ---------- */
+.sheet{
+  position:fixed;left:0;right:0;bottom:0;z-index:10;
+  background:var(--accent-dk);color:#fff;
+  border-top:4px solid var(--accent);
+  padding-bottom:env(safe-area-inset-bottom);
+  transition:background-color .18s ease,border-color .18s ease;
+}
+.sheet[data-sev="leve"]{background:var(--leve);border-top-color:#14543E}
+.sheet[data-sev="moderada"]{background:var(--mod);border-top-color:#8A5411}
+.sheet[data-sev="grave"]{background:var(--grave);border-top-color:#7D1F1B}
+.sheet-inner{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 12px;min-height:var(--sheet-h)}
+.score-box{display:flex;align-items:baseline;gap:2px;min-width:70px}
+.score-num{font-size:2.5rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.score-max{font-size:1rem;opacity:.75}
+.score-text{flex:1;display:flex;flex-direction:column;gap:2px;min-width:0}
+.score-text strong{font-size:1.05rem;letter-spacing:.2px}
+.score-text span{font-size:.79rem;opacity:.92}
+.sheet-actions{display:flex;flex-direction:column;gap:6px}
+.ghost{
+  appearance:none;font:inherit;font-size:.78rem;cursor:pointer;
+  background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.45);
+  border-radius:8px;padding:5px 10px}
+.ghost:active{background:rgba(255,255,255,.28)}
+
+/* ---------- pie ---------- */
+.legal{max-width:640px;margin:0 auto;padding:0 12px 18px;font-size:.8rem;color:var(--muted)}
+.warning{
+  background:#FFF4F3;border:1px solid #F0C9C6;border-left:4px solid var(--grave);
+  border-radius:var(--radius);padding:10px 12px;color:var(--ink);margin:4px 0 12px}
+.warning strong{color:var(--grave)}
+.legal summary{cursor:pointer;font-weight:600;color:var(--accent-dk);padding:8px 0}
+.legal ul{padding-left:18px;margin:6px 0 0}
+.legal li{margin-bottom:6px}
+.legal a{color:var(--accent-dk)}
+
+@media (min-width:560px){
+  .topbar h1{font-size:1.15rem}
+  .opt span.txt{font-size:.94rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
