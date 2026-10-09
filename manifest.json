@@ -1,7 +1,7 @@
 {
   "name": "Escores de dificultad respiratoria obstructiva baja",
   "short_name": "Escores DRO",
-  "description": "Tal modificado por FC, Pulmonary score y PRAM para evaluar la gravedad de la obstrucción bronquial en pediatría. AR-UCIP.",
+  "description": "Escore de Tal modificado, Pulmonary score y PRAM para evaluar la gravedad de la obstrucción bronquial en pediatría. AR-UCIP.",
   "lang": "es-AR",
   "start_url": "./",
   "scope": "./",
