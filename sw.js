@@ -1,5 +1,5 @@
 /* Service worker — cache-first con actualización en segundo plano */
-var CACHE = 'escores-dro-v4';
+var CACHE = 'escores-dro-v5';
 var ASSETS = [
   './',
   './index.html',
