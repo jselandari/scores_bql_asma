@@ -2,7 +2,7 @@
 
 /* ------------------------------------------------------------------
    Escores de dificultad respiratoria obstructiva baja — AR-UCIP
-   Tal modificado por FC · Pulmonary score · PRAM
+   Escore de Tal modificado por FC · Pulmonary score · PRAM
 -------------------------------------------------------------------*/
 
 var ageGroup = 'lt6';          // solo Tal: <6 m ó ≥6 m
@@ -30,7 +30,7 @@ var FR_TAL = {
 var SCORES = {
 
   tal: {
-    name: 'Tal modificado por FC',
+    name: 'Escore de Tal modificado por FC',
     age: '1 a 24 meses',
     max: 12,
     intro: 'Bronquiolitis y síndrome bronquial obstructivo del lactante. Escala de dificultad respiratoria del Ministerio de Salud (EDRAR).',
